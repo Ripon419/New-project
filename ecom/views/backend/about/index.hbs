@@ -1,0 +1,71 @@
+
+    <main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Dashboard</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                <li class="breadcrumb-item active">{{title}}</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+
+          <div class="card">
+            <div class="card-body">
+                <a class="btn btn-success btn-lg position-center mt-3 mb-2 text-center" href="/admin/about/create"><i class="bi bi-plus-circle"></i>&nbsp Create</a>
+
+              <!-- Dark Table -->
+              <table class="table table-hover ">
+                <thead>
+                  <tr class="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+                    <th scope="col">Title</th>
+                    <th scope="col">Image</th>
+                    
+                    <th scope="col">Details</th>
+                    
+                    <th scope="col">Action</th>
+                     
+                  </tr>
+                </thead>
+                <tbody>
+
+                  {{#each data}}
+                  <tr>
+                    <td>{{title}}</td>
+                     <td>
+                      <img src="/{{image}}" width="60px" alt="{{title}}">
+                    </td>
+
+                     <td>{{details}}</td>
+
+                   
+                    <td class="w-50 align-center text-center">
+                      <div class="row">
+                      <div class="col">
+                        <a href="/admin/about/{{id}}/show" class="btn btn-outline-info btn-sm"><i class="bi bi-eye-fill"></i></a>
+                        </div>
+                        <div class="col">
+                        <a href="/admin/about/{{id}}/edit" class="btn btn-outline-primary btn-sm"><i class="bi bi-pencil-square"></i></a>
+                        </div>
+                        <div class="col">
+
+                        <form action="/admin/about/{{id}}/delete" method="post">
+                          <button type="submit" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash3-fill"></i></button>
+                        </form>
+                        </div>
+                        </div>
+                    </td>
+                  </tr>
+                  {{/each}}
+
+                </tbody>
+              </table>
+              <!-- End Dark Table -->
+
+            </div>
+          </div>
+    </section>
+</main>
